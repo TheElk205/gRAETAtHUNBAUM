@@ -82,7 +82,7 @@ public class woodcutter : MonoBehaviour
     bool PlayerIsVisible()
     {
         //TODO Spieler fragen ob er sichbar ist
-        return true;
+        return player.GetComponent<PlayerController>().isVisible();
     }
 
     //Spieler betritt reichweite des Holzfällers

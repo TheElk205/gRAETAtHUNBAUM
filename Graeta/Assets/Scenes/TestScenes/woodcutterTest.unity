@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: 6159384732044781356, guid: aa1ee4f8b8a4e6f4197e6b5b07b756ae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6159384732044781356, guid: aa1ee4f8b8a4e6f4197e6b5b07b756ae,
         type: 3}
@@ -284,6 +284,9 @@ GameObject:
   - component: {fileID: 1197745132}
   - component: {fileID: 1197745135}
   - component: {fileID: 1197745134}
+  - component: {fileID: 1197745138}
+  - component: {fileID: 1197745137}
+  - component: {fileID: 1197745136}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -391,6 +394,54 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1197745136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197745131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72c156c5d809054ebfd0ccfebfc0e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 5
+  currentSpeed: {x: 0, y: 0}
+  rigidbody2D: {fileID: 0}
+--- !u!114 &1197745137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197745131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a20ede198cb02241866ee6760085cbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHp: 10
+  maxHp: 10
+  maxHpIncrease: 0
+  fireTimerLimit: 0
+  bugTimerLimit: 0
+  poisonTimerLimit: 0
+  playerMovement: {fileID: 1197745136}
+  hidingInTreeGroup: {fileID: 1197745138}
+--- !u!114 &1197745138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197745131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a9c5f655c554d4ba13ee12656000ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInTreeGroup: 0
 --- !u!1 &1410748596
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +455,7 @@ GameObject:
   - component: {fileID: 1410748599}
   m_Layer: 0
   m_Name: Tree
-  m_TagString: Untagged
+  m_TagString: TreeGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -482,7 +533,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
