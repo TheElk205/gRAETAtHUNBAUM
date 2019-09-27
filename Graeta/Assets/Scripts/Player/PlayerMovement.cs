@@ -26,5 +26,13 @@ namespace Player
             currentSpeed = Time.deltaTime * maxSpeed * currentSpeed.normalized;
             rigidbody2D.MovePosition(rigidbody2D.transform.position + new Vector3(currentSpeed.x, currentSpeed.y, 0));
         }
+
+        public bool isMoving()
+        {
+            if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0){
+                return true;
+            }
+            return false;
+        }
     }
 }
