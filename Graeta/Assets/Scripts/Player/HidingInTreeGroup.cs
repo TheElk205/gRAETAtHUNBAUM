@@ -16,7 +16,6 @@ public class HidingInTreeGroup : MonoBehaviour
         if (other.tag.Equals("TreeGroup"))
         {
             this.isPlayerInTreeGroup = true;
-            Debug.Log("Player is in Tree Group.");
         }
     }
 
@@ -25,7 +24,6 @@ public class HidingInTreeGroup : MonoBehaviour
         if (other.tag.Equals("TreeGroup"))
         {
             this.isPlayerInTreeGroup = false;
-            Debug.Log("Player leaves Tree Group.");
         }
     }
 }
