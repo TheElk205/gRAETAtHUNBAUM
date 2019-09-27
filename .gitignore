@@ -109,3 +109,5 @@ Assets/InitTestScene*
 Assets/StreamingAssets/*
 
 *.blend?
+
+.vs
