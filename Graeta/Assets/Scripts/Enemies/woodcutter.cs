@@ -41,6 +41,8 @@ public class woodcutter : MonoBehaviour
             if (timer >= timeReset)
             {
                 target = (Random.insideUnitCircle * home.radius);
+                target.x += home.transform.position.x;
+                target.y += home.transform.position.y;
                 timer = 0;
             }
             else
@@ -80,7 +82,7 @@ public class woodcutter : MonoBehaviour
     bool PlayerIsVisible()
     {
         //TODO Spieler fragen ob er sichbar ist
-        return true;
+        return player.GetComponent<PlayerController>().isVisible();
     }
 
     //Spieler betritt reichweite des Holzfällers
