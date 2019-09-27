@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6159384731989800585}
   m_Layer: 0
   m_Name: WoodCutter
-  m_TagString: Untagged
+  m_TagString: Woodcutter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 6159384732528160121}
   m_Layer: 0
   m_Name: WoodCutter
-  m_TagString: Untagged
+  m_TagString: Woodcutter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 200
   chaseMod: 3
-  dmg: 0
+  dmg: 1
   debug: 1
   timeReset: 3
   rb: {fileID: 6159384732528160120}
