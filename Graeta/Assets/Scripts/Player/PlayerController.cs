@@ -66,6 +66,7 @@ public class PlayerController : MonoBehaviour
         } else if (collision.tag.Equals("Bug"))
         {
             isBugged = true;
+            Destroy(collision.gameObject);
         }
     }
 
