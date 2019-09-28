@@ -69,7 +69,7 @@ public class InputManager : MonoBehaviour
         return direction;
     }
 
-    public bool Wiggels()
+    public int Wiggels()
     {
         Vector2 thisInput = MoveDirection();
 
@@ -77,24 +77,24 @@ public class InputManager : MonoBehaviour
         {
             lastInput = thisInput;
             wiggleTimer = 0;
-            return true;
+            return 1;
         }
 
         if (wiggleTimer > wiggleLimit)
         {
             lastInput = new Vector2(0, 0);
-            return false;
+            return -1;
         }
 
         if (InputIsDiferent(lastInput, thisInput) && thisInput != new Vector2(0, 0))
         {
             lastInput = thisInput;
             wiggleTimer = 0;
-            return true;
+            return 1;
         }
 
         wiggleTimer += Time.deltaTime;
-        return true;
+        return 0;
     }
 
     bool InputIsDiferent(Vector2 in1, Vector2 in2)
@@ -126,7 +126,7 @@ public class InputManager : MonoBehaviour
         {
             return true;
         }
-        if (Input.GetAxis("SpeedBoostAxis") > 0){
+        if (Input.GetAxis("SpeedBoostAxis") < 0){
             return true;
         }
         return false;

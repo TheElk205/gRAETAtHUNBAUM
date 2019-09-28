@@ -1,29 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HidingInTreeGroup : MonoBehaviour
+namespace Player
 {
-    public bool isPlayerInTreeGroup;
-
-    void Start()
+    public class HidingInTreeGroup : MonoBehaviour
     {
-        isPlayerInTreeGroup = false;
-    }
+        public bool isPlayerInTreeGroup;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.tag.Equals("TreeGroup"))
+        void Start()
         {
-            this.isPlayerInTreeGroup = true;
+            isPlayerInTreeGroup = false;
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag.Equals("TreeGroup"))
+        private void OnTriggerStay2D(Collider2D other)
         {
-            this.isPlayerInTreeGroup = false;
+            if (other.CompareTag("TreeGroup"))
+            {
+                isPlayerInTreeGroup = true;
+            }
+        }
+    
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.CompareTag("TreeGroup"))
+            {
+                isPlayerInTreeGroup = false;
+            }
         }
     }
 }
