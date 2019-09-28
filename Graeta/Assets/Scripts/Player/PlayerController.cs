@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Player;
 using UnityEngine;
+using Collectibles;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,14 +24,20 @@ public class PlayerController : MonoBehaviour
     public Player.PlayerMovement playerMovement;
     public HidingInTreeGroup hidingInTreeGroup;
     public InputManager inputManager;
-    PineShooter shooter;
+    public PineShooter shooter;
     public Player.HealthController healthController;
     public SpeedBoost speedBoost;
+
+    public GameObject burning, bugged;
+    int wiggeldCount = 10;
+    public int wiggeldOf = 10;
+    private CollectiblesManager collectiblesManager;
 
     // Start is called before the first frame update
     void Start()
     {
         shooter = GetComponent<PineShooter>(); 
+        collectiblesManager = FindObjectOfType<CollectiblesManager>();
     }
 
     // Update is called once per frame
@@ -75,6 +82,25 @@ public class PlayerController : MonoBehaviour
         {
             speedBoost.activate();
         }
+
+        if (isBugged)
+        {
+            if (inputManager.Wiggels() == 1)
+            {
+                wiggeldCount += 1;
+            }
+            else if (inputManager.Wiggels() == -1)
+            {
+                wiggeldCount = 0;
+            }
+
+            if (wiggeldCount >= wiggeldOf)
+            {
+                wiggeldCount = 0;
+                isBugged = false;
+                bugged.SetActive(false);
+            }
+        }
     }   
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -82,9 +108,62 @@ public class PlayerController : MonoBehaviour
         if (collision.tag.Equals("Fire"))
         {
             isOnFire = true;
-        } else if (collision.tag.Equals("Bug"))
+			FindObjectOfType<AudioManager>().Play("FireHit");
+        }
+        else if (collision.tag.Equals("Bug"))
         {
             isBugged = true;
+            bugged.SetActive(true);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("Water"))
+        {
+            isOnFire = false;
+            burning.SetActive(false);
+        }
+        else if (collision.gameObject.tag.Equals("ShopItem"))
+        {
+            var shopItem = collision.gameObject.GetComponent<ShopItem>();
+            Debug.Log("ShopItem: " + shopItem.type.ToString());
+            Debug.Log("ShopItem price: " + shopItem.price.ToString());
+            Debug.Log("Resources: " + this.collectiblesManager.collectedResources.ToString());
+
+            if (this.collectiblesManager.collectedResources < shopItem.price)
+            {
+                Debug.Log("Lacking resources!");
+                return;
+            }
+
+            switch (shopItem.type)
+            {
+                case ShopItem.ItemType.SPEED:
+                    this.isSpeedBoostUpgradeAvailable = true;
+                    break;
+                case ShopItem.ItemType.SHOOT:
+                    this.shooter.canShoot = true;
+                    break;
+                case ShopItem.ItemType.HEALTH:
+                    var maxHealth = this.healthController.getMaxHealth();
+                    if (maxHealth == Player.HealthController.MaxHealth.SIX_HEALTH)
+                    {
+                        this.healthController.setMaxHealth(Player.HealthController.MaxHealth.TEN_HEALTH);
+                    }
+                    else if (maxHealth == Player.HealthController.MaxHealth.TEN_HEALTH)
+                    {
+                        this.healthController.setMaxHealth(Player.HealthController.MaxHealth.FOURTEEN_HEALTH);
+                    }
+                    else if (maxHealth == Player.HealthController.MaxHealth.FOURTEEN_HEALTH)
+                    {
+                        Debug.Log("Already max health!");
+                        return;
+                    }
+                    break;
+                case ShopItem.ItemType.STEALTH:
+                    this.isInvisibleUpgradeAvailable = true;
+                    break;
+            }
+
+            this.collectiblesManager.collectedResources -= shopItem.price;
             Destroy(collision.gameObject);
         }
     }
@@ -94,7 +173,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Woodcutter"))
         {
             changeHp(-collision.gameObject.GetComponent<woodcutter>().dmg);
+            FindObjectOfType<AudioManager>().Play("LumberjackHit");
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D other)

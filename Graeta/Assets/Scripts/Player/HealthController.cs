@@ -75,6 +75,11 @@ namespace Player
             this.setHealth(this.health);
         }
 
+        public MaxHealth getMaxHealth()
+        {
+            return (MaxHealth) this.maxHealth;
+        }
+
         public int getHealth()
         {
             return this.health;
