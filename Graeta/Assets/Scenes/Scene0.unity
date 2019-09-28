@@ -7801,6 +7801,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 456848643}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &456848645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4611393192563475729, guid: 2765ad3a2f59a464b80bca7775b969a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 456848643}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &456848646
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456848645}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000076293945, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.04
 --- !u!1001 &459929346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10891,6 +10913,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 690900825}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &690900827 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4611393192563475729, guid: 2765ad3a2f59a464b80bca7775b969a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 690900825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &690900828
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690900827}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000076293945, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.04
 --- !u!1001 &692065667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36666,6 +36710,28 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6832247752407801679}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6832247752407801681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4611393192563475729, guid: 2765ad3a2f59a464b80bca7775b969a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6832247752407801679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!58 &6832247752407801682
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832247752407801681}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000076293945, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.04
 --- !u!1001 &8019579813405236131
 PrefabInstance:
   m_ObjectHideFlags: 0
