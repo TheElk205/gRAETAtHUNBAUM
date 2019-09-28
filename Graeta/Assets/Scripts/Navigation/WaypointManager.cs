@@ -48,11 +48,31 @@ namespace Navigation
                 start.transform.position,
                 finish.transform.position
             );
- 
-            //draw force application point
-//            Gizmos.DrawWireSphere(Vector3.zero, 0.05f);
- 
+
             Gizmos.color = Color.white;
+        }
+
+        public Waypoint GetNearestWaypoint(Vector2 positon)
+        {
+            if (waypoints == null || waypoints.Length == 0)
+            {
+                return null;
+            }
+            
+            Waypoint nearest = waypoints[0];
+            float distance = (nearest.position - positon).magnitude;
+            
+            for (int i = 1; i < waypoints.Length; i++)
+            {
+                float newDistance = (waypoints[i].position - positon).magnitude;
+                if ( newDistance < distance)
+                {
+                    distance = newDistance;
+                    nearest = waypoints[i];
+                }
+            }
+
+            return nearest;
         }
     }
 }
