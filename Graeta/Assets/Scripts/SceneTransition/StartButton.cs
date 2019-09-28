@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using SceneTransition;
+using UnityEngine;
 
 public class StartButton : MonoBehaviour
 {
     public void NextScene()
     {
         FindObjectOfType<AudioManager>().Play("Level1Start");
-        SceneManager.LoadScene("Scene0");
+        SceneManager.sceneManager.LoadScenePositionPlayer(new Vector2(-52.8f, 60.7f));
     }
 }

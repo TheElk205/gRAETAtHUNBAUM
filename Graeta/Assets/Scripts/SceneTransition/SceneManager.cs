@@ -30,6 +30,7 @@ namespace SceneTransition
         private static List<SceneNames> scenes = new List<SceneNames>
         {
             SceneNames.SCENE0,
+            SceneNames.SCENE0,
             SceneNames.TRANSITION,
             SceneNames.SCENE1,
             SceneNames.TRANSITION,
@@ -61,12 +62,7 @@ namespace SceneTransition
             string music = sceneBackgroundMusic[scenes[currentSceneIndex]];
             FindObjectOfType<AudioManager>().Play(music);
         }
-        
-        public static void LoadNextScene()
-        {
-            
-        }
-        
+
         private IEnumerator LoadLevelWaitAndSetPosition (String sceneName, Vector2 position)
         {
             
@@ -77,6 +73,7 @@ namespace SceneTransition
                 yield return null;
             }
 
+            yield return null;
             GameObject.FindWithTag("Player").transform.position = new Vector3(position.x, position.y, -40);
         }
         

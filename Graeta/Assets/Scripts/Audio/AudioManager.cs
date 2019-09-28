@@ -65,9 +65,12 @@ public class AudioManager : MonoBehaviour
         if (currentMusic.source.volume < currentMusic.volume)
         {
             currentMusic.source.volume += fadeInStep * Time.deltaTime;
-            if (previousMusic.source.volume >= currentMusic.volume)
+            if (previousMusic != null)
             {
-                previousMusic.source.volume = currentMusic.volume;
+                if (previousMusic.source.volume >= currentMusic.volume)
+                {
+                    previousMusic.source.volume = currentMusic.volume;
+                }
             }
         }
 

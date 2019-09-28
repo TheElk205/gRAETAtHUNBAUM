@@ -34596,12 +34596,12 @@ PrefabInstance:
     - target: {fileID: 4573024018888071112, guid: 5f9e15b4ee64d154ebfe45fc7a2061eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -95.1
+      value: -52.8
       objectReference: {fileID: 0}
     - target: {fileID: 4573024018888071112, guid: 5f9e15b4ee64d154ebfe45fc7a2061eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -44.3
+      value: 60.7
       objectReference: {fileID: 0}
     - target: {fileID: 4573024018888071112, guid: 5f9e15b4ee64d154ebfe45fc7a2061eb,
         type: 3}
@@ -34671,6 +34671,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 48356004, guid: 5f9e15b4ee64d154ebfe45fc7a2061eb, type: 3}
       propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8934308465531410904, guid: 5f9e15b4ee64d154ebfe45fc7a2061eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
