@@ -5,6 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public KeyCode fireKey;
+    public KeyCode speedBoostKey;
     public float wiggleLimit;
     float wiggleTimer;
     Vector2 lastInput = new Vector2(0, 0);
@@ -116,6 +117,18 @@ public class InputManager : MonoBehaviour
         if (in1.y < 0 && in2.y >= 0)
             return true;
 
+        return false;
+    }
+
+    public bool speedBoostButtonPressed()
+    {
+        if (Input.GetKeyDown(speedBoostKey))
+        {
+            return true;
+        }
+        if (Input.GetAxis("SpeedBoostAxis") > 0){
+            return true;
+        }
         return false;
     }
 }

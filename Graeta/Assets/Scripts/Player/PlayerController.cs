@@ -70,8 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             healthController.setEnableRegen(true);
         }
-        // TODO: Get key event from input manager
-        if(isSpeedBoostUpgradeAvailable && Input.GetKeyDown(KeyCode.Q))
+        if(isSpeedBoostUpgradeAvailable && inputManager.speedBoostButtonPressed())
         {
             speedBoost.activate();
         }
