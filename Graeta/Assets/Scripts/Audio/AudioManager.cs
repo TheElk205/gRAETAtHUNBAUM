@@ -54,14 +54,12 @@ public class AudioManager : MonoBehaviour
                 {
                     previousMusic.source.volume = 0;
                 }
-                Debug.LogWarning("previousMusic: " + previousMusic.source.volume.ToString());
             }
         }
 
         if (currentMusic.source.volume < currentMusic.volume)
         {
             currentMusic.source.volume += fadeInStep * Time.deltaTime;
-            Debug.LogWarning("currentMusic: " + currentMusic.source.volume.ToString());
             if (previousMusic.source.volume >= currentMusic.volume)
             {
                 previousMusic.source.volume = currentMusic.volume;
