@@ -12,14 +12,7 @@ public class PineShooter : MonoBehaviour
     public bool canShoot;
 
     float timer;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (!canShoot)
@@ -47,7 +40,7 @@ public class PineShooter : MonoBehaviour
             timer = shotDelay;
             direction = direction.normalized;
             GameObject shot = Instantiate(pine);
-            shot.transform.position = transform.position;
+            shot.transform.position = aimDicator.transform.position;
             shot.transform.rotation = aimDicator.transform.rotation;
             shot.GetComponent<Rigidbody2D>().AddForce(direction * speed);
             shot.GetComponent<Rigidbody2D>().AddTorque(250);
@@ -59,12 +52,16 @@ public class PineShooter : MonoBehaviour
     public void TakeAim(Vector2 direction)
     {
         if (!canShoot)
+        {
             return;
+        }
 
         Vector3 targetVector = new Vector3(direction.x, direction.y);
         float angle = Vector3.Angle(Vector3.up, targetVector);
         if (targetVector.x < 0)
+        {
             angle *= -1;
+        }
 
         aimDicator.transform.rotation = Quaternion.AngleAxis(angle, Vector3.back);
     }

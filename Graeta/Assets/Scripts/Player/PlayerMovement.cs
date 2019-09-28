@@ -16,6 +16,10 @@ namespace Player
         void Start()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
+            #if !UNITY_EDITOR
+            defaultSpeed =*= 10;
+            #endif
+            
             maxSpeed = defaultSpeed;
         }
         

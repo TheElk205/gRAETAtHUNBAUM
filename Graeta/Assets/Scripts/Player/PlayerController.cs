@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.tag.Equals("Fire"))
         {
+            burning.SetActive(true);
             isOnFire = true;
 			FindObjectOfType<AudioManager>().Play("FireHit");
         }
