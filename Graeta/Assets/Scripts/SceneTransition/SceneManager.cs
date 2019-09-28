@@ -30,7 +30,6 @@ namespace SceneTransition
         private static List<SceneNames> scenes = new List<SceneNames>
         {
             SceneNames.SCENE0,
-            SceneNames.SCENE0,
             SceneNames.TRANSITION,
             SceneNames.SCENE1,
             SceneNames.TRANSITION,
@@ -55,12 +54,14 @@ namespace SceneTransition
 
         public void LoadScenePositionPlayer(Vector2 position)
         {
-            currentSceneIndex++;
             string sceneName = sceneMappings[scenes[currentSceneIndex]];
+            
+            currentSceneIndex++;
             StartCoroutine(LoadLevelWaitAndSetPosition(sceneName, position));
 
             string music = sceneBackgroundMusic[scenes[currentSceneIndex]];
             FindObjectOfType<AudioManager>().Play(music);
+            
         }
 
         private IEnumerator LoadLevelWaitAndSetPosition (String sceneName, Vector2 position)
