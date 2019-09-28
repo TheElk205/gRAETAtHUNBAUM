@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     // private bool isPoisoned = false;
     private bool isBugged = false;
 
-    private bool isInvisibleUpgradeAvailable = false;
-    private bool isRegenerateUpgradeAvailable = true;
+    public bool isInvisibleUpgradeAvailable = false;
+    public bool isRegenerateUpgradeAvailable = false;
+    public bool isSpeedBoostUpgradeAvailable = false;
 
     private float fireTimer = 0;
     private float bugTimer = 0;
@@ -20,20 +21,24 @@ public class PlayerController : MonoBehaviour
 
     public Player.PlayerMovement playerMovement;
     public HidingInTreeGroup hidingInTreeGroup;
+    public InputManager inputManager;
+    PineShooter shooter;
     public Player.HealthController healthController;
+    public SpeedBoost speedBoost;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        shooter = GetComponent<PineShooter>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
+        float deltaTime = Time.deltaTime;
         if (isOnFire)
         {
-            fireTimer += Time.deltaTime;
+            fireTimer += deltaTime;
             if (fireTimer > fireTimerLimit)
             {
                 changeHp(-1);
@@ -42,16 +47,32 @@ public class PlayerController : MonoBehaviour
         }
         if (isBugged)
         {
-            bugTimer += Time.deltaTime;
+            bugTimer += deltaTime;
             if (bugTimer > bugTimerLimit)
             {
                 changeHp(-1);
                 bugTimer = 0;
             }
         }
+
+        if (shooter != null)
+        {
+            Vector2 direction = inputManager.ShotDirection();
+            shooter.TakeAim(direction);
+
+            if (inputManager.Shoot())
+            {
+                shooter.Shoot(direction);
+            }
+        }
+
         if(isRegenerateUpgradeAvailable && !healthController.getIsRegenEnabled())
         {
             healthController.setEnableRegen(true);
+        }
+        if(isSpeedBoostUpgradeAvailable && inputManager.speedBoostButtonPressed())
+        {
+            speedBoost.activate();
         }
     }   
 

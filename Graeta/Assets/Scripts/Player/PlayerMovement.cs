@@ -5,7 +5,9 @@ namespace Player
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerMovement : MonoBehaviour
     {
-        public float maxSpeed = 1;
+        private float maxSpeed = 1;
+        public float defaultSpeed = 1;
+        public float boostedSpeed = 2;
         public Vector2 currentSpeed;
 
         [Header("Will be filled during simulation")]
@@ -14,6 +16,7 @@ namespace Player
         void Start()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
+            maxSpeed = defaultSpeed;
         }
         
         void Update()
@@ -33,6 +36,16 @@ namespace Player
                 return true;
             }
             return false;
+        }
+
+        public void boostSpeed()
+        {
+            maxSpeed = boostedSpeed;
+        }
+
+        public void resetSpeed()
+        {
+            maxSpeed = defaultSpeed;
         }
     }
 }

@@ -23,11 +23,13 @@ public class fireyflames : MonoBehaviour
         {
             waypoints = new Vector2[temp.Length * 2];
 
-            waypoints[0] = new Vector2(0, 0);
+            Vector2 startvector = transform.position;
+
+            waypoints[0] = startvector;
 
             for (int i = 0; i < temp.Length; i++)
             {
-                waypoints[i + 1] = temp[i];
+                waypoints[i + 1] = temp[i] + startvector;
             }
 
             for (int i = 1; i < temp.Length; i++)
