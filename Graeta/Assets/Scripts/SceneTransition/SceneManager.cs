@@ -48,7 +48,7 @@ namespace SceneTransition
         {
             {SceneNames.SCENE0, "Level1Start"},
             {SceneNames.SCENE1, "Level2"},
-            {SceneNames.SCENE2, "Level3"},
+            {SceneNames.SCENE2, "Level2"},
             {SceneNames.TRANSITION, "Shop"},
         };
 
