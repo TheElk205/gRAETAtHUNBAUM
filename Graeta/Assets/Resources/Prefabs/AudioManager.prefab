@@ -95,5 +95,35 @@ MonoBehaviour:
     isBackgroundMusic: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: LumberjackHit
+    clip: {fileID: 8300000, guid: 12aa3a988910d27448fe2b9aeb42fb8f, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: FireHit
+    clip: {fileID: 8300000, guid: e4145ed55422ff045ab421de7d4258f9, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: PineconeHit
+    clip: {fileID: 8300000, guid: 8b472d91994f4cd438a5aabaf9460b22, type: 3}
+    volume: 1
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
   fadeInStep: 0.1
   fadeOutStep: 0.1
