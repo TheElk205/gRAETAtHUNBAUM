@@ -55,11 +55,12 @@ namespace SceneTransition
         public void LoadScenePositionPlayer(Vector2 position)
         {
             string sceneName = sceneMappings[scenes[currentSceneIndex]];
-            
+            string music = sceneBackgroundMusic[scenes[currentSceneIndex]];
+
             currentSceneIndex++;
+            
             StartCoroutine(LoadLevelWaitAndSetPosition(sceneName, position));
 
-            string music = sceneBackgroundMusic[scenes[currentSceneIndex]];
             FindObjectOfType<AudioManager>().Play(music);
             
         }
