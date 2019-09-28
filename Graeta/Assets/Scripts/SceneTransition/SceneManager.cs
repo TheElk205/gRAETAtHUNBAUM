@@ -24,6 +24,11 @@ namespace SceneTransition
             }
         }
 
+        public void Start()
+        {
+            FindObjectOfType<AudioManager>().Play("StartScreen");
+        }
+
         private static List<SceneNames> scenes = new List<SceneNames>
         {
             SceneNames.SCENE0,
@@ -41,12 +46,23 @@ namespace SceneTransition
             {SceneNames.TRANSITION, "Transition"},
         };
 
+        public static Dictionary<SceneNames, String> sceneBackgroundMusic = new Dictionary<SceneNames, string>
+        {
+            {SceneNames.SCENE0, "Level1Start"},
+            {SceneNames.SCENE1, "Level2"},
+            {SceneNames.SCENE2, "Level3"},
+            {SceneNames.TRANSITION, "Shop"},
+        };
+
         public static void LoadNextScene()
         {
             currentSceneIndex++;
             string sceneName = sceneMappings[scenes[currentSceneIndex]];
             Debug.Log("Loading Scene: " + sceneName);
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+
+            string music = sceneBackgroundMusic[scenes[currentSceneIndex]];
+            FindObjectOfType<AudioManager>().Play(music);
         }
         
     }
