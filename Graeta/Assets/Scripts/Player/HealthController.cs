@@ -154,12 +154,13 @@ namespace Player
 
         private void handleRegenTimer()
         {
+ 
             timer += Time.deltaTime;
 
             if (timer > regenIntervalInSeconds)
             {
                 timer = timer - regenIntervalInSeconds;
-                setHealth(health++);
+                setHealth(health + 1);
             }
         }
 

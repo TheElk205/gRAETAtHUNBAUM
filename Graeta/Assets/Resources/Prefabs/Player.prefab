@@ -872,14 +872,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a20ede198cb02241866ee6760085cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 10
-  maxHp: 10
-  maxHpIncrease: 0
   fireTimerLimit: 0
   bugTimerLimit: 0
   poisonTimerLimit: 0
-  playerMovement: {fileID: 0}
-  hidingInTreeGroup: {fileID: 0}
+  playerMovement: {fileID: 1730708850}
+  hidingInTreeGroup: {fileID: 1817467905596535748}
+  healthController: {fileID: 123085300}
 --- !u!114 &123085300
 MonoBehaviour:
   m_ObjectHideFlags: 0

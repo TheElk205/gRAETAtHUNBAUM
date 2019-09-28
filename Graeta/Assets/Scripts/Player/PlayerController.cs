@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int currentHp = 10;
-    public int maxHp = 10;
-
-    public int maxHpIncrease;
-
     private bool isOnFire = false;
     // private bool isPoisoned = false;
     private bool isBugged = false;
 
     private bool isInvisibleUpgradeAvailable = false;
-    private bool isRegenerateUpgradeAvailable = false;
+    private bool isRegenerateUpgradeAvailable = true;
 
     private float fireTimer = 0;
     private float bugTimer = 0;
@@ -26,8 +21,8 @@ public class PlayerController : MonoBehaviour
     public Player.PlayerMovement playerMovement;
     public HidingInTreeGroup hidingInTreeGroup;
     public InputManager inputManager;
-
     PineShooter shooter;
+    public Player.HealthController healthController;
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +62,11 @@ public class PlayerController : MonoBehaviour
                 shooter.Shoot(direction);
             }
         }
+
+        if(isRegenerateUpgradeAvailable && !healthController.getIsRegenEnabled())
+        {
+            healthController.setEnableRegen(true);
+        }
     }   
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,9 +74,6 @@ public class PlayerController : MonoBehaviour
         if (collision.tag.Equals("Fire"))
         {
             isOnFire = true;
-        } else if (collision.tag.Equals("Woodcutter"))
-        {
-            changeHp(-collision.GetComponent<woodcutter>().dmg);
         } else if (collision.tag.Equals("Bug"))
         {
             isBugged = true;
@@ -84,9 +81,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag.Equals("Woodcutter"))
+        {
+            changeHp(-collision.gameObject.GetComponent<woodcutter>().dmg);
+        }
+    }
+
     private void OnTriggerStay2D(Collider2D other)
     {
-        // TODO: Does not continously update?
+        // TODO: Does not continously update or only when player is moving inside poison?
         if (other.gameObject.tag.Equals("Poison"))
         {
             poisonTimer += Time.deltaTime;
@@ -98,14 +103,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void increaseMaxHp()
-    {
-        maxHp += maxHpIncrease;
-    }
-
     private void changeHp(int value)
     {
-        currentHp += value;
+        int currentHealth = healthController.getHealth();
+        healthController.setHealth(currentHealth + value);
     }
 
     public bool isVisible()
