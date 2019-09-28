@@ -11,12 +11,23 @@ namespace Enemies
         int counter;
         float timer;
 
+        new public void Start()
+        {
+            base.Start();
+            Transform toMove = transform.Find("Body");
+            if (toMove != null)
+            {
+                toMove.localPosition = new Vector3(0,0,0);
+            }
+        }
         // Update is called once per frame
         new void Update()
         {
             base.Update();
             SpawnFlame();
+            
         }
+        
         void SpawnFlame()
         {
             timer += Time.deltaTime;
