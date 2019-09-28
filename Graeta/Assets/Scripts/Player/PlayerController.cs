@@ -25,11 +25,14 @@ public class PlayerController : MonoBehaviour
 
     public Player.PlayerMovement playerMovement;
     public HidingInTreeGroup hidingInTreeGroup;
+    public InputManager inputManager;
+
+    PineShooter shooter;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        shooter = GetComponent<PineShooter>(); 
     }
 
     // Update is called once per frame
@@ -51,6 +54,17 @@ public class PlayerController : MonoBehaviour
             {
                 changeHp(-1);
                 bugTimer = 0;
+            }
+        }
+
+        if (shooter != null)
+        {
+            Vector2 direction = inputManager.ShotDirection();
+            shooter.TakeAim(direction);
+
+            if (inputManager.Shoot())
+            {
+                shooter.Shoot(direction);
             }
         }
     }   
