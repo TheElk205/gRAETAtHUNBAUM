@@ -55,9 +55,11 @@ public class InputManager : MonoBehaviour
     {
         Vector2 direction = new Vector2(0, 0);
 
-        direction = Input.mousePosition;
-
-        if (Input.GetAxis("Aim X") != 0 || Input.GetAxis("Aim Y") != 0)
+        direction = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        direction.x -= transform.position.x;
+        direction.y -= transform.position.y;
+        
+        if (Input.GetAxis("Aim X") > 0.03 || Input.GetAxis("Aim X") < -0.03 || Input.GetAxis("Aim Y") > 0.03 || Input.GetAxis("Aim Y") < -0.03)
         {
             direction.x = Input.GetAxis("Aim X");
             direction.y = Input.GetAxis("Aim Y");
