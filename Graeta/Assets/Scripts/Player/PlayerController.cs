@@ -8,8 +8,9 @@ public class PlayerController : MonoBehaviour
     // private bool isPoisoned = false;
     private bool isBugged = false;
 
-    private bool isInvisibleUpgradeAvailable = false;
-    private bool isRegenerateUpgradeAvailable = true;
+    public bool isInvisibleUpgradeAvailable = false;
+    public bool isRegenerateUpgradeAvailable = false;
+    public bool isSpeedBoostUpgradeAvailable = false;
 
     private float fireTimer = 0;
     private float bugTimer = 0;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public Player.PlayerMovement playerMovement;
     public HidingInTreeGroup hidingInTreeGroup;
     public Player.HealthController healthController;
+    public SpeedBoost speedBoost;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +33,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float deltaTime = Time.deltaTime;
         if (isOnFire)
         {
-            fireTimer += Time.deltaTime;
+            fireTimer += deltaTime;
             if (fireTimer > fireTimerLimit)
             {
                 changeHp(-1);
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
         }
         if (isBugged)
         {
-            bugTimer += Time.deltaTime;
+            bugTimer += deltaTime;
             if (bugTimer > bugTimerLimit)
             {
                 changeHp(-1);
@@ -52,6 +55,11 @@ public class PlayerController : MonoBehaviour
         if(isRegenerateUpgradeAvailable && !healthController.getIsRegenEnabled())
         {
             healthController.setEnableRegen(true);
+        }
+        // TODO: Get key event from input manager
+        if(isSpeedBoostUpgradeAvailable && Input.GetKeyDown(KeyCode.Q))
+        {
+            speedBoost.activate();
         }
     }   
 
