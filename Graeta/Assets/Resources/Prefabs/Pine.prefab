@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1457202997683560372}
   - component: {fileID: 2885266041869167017}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: cone_projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4871245167648670109}
   - component: {fileID: 2461397004761532879}
   - component: {fileID: -8778219473956706119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Pine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
