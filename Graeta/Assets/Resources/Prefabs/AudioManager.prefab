@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7946064022114462206
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4572037213120138895}
+  - component: {fileID: 7048145798565352715}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4572037213120138895
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7946064022114462206}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.17136362, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7048145798565352715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7946064022114462206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24393a73e2247034bbab79d28bf126ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: StartScreen
+    clip: {fileID: 8300000, guid: f95d0f4f9c58222479f706f93dfee5d9, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Level1Start
+    clip: {fileID: 8300000, guid: f95d0f4f9c58222479f706f93dfee5d9, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Level1End
+    clip: {fileID: 8300000, guid: 63416297c235e01478165e6c86b173d6, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Shop
+    clip: {fileID: 8300000, guid: d1347b614f1feb04abf07c1b7a5c0880, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: 8c92405f3ef49134b8475e84610dc44c, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    isBackgroundMusic: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  fadeInStep: 0.1
+  fadeOutStep: 0.1
