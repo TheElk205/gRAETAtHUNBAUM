@@ -844,7 +844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72c156c5d809054ebfd0ccfebfc0e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
+  defaultSpeed: 1
+  boostedSpeed: 2
   currentSpeed: {x: 0, y: 0}
   rigidbody2D: {fileID: 0}
 --- !u!114 &1817467905596535748
@@ -872,12 +873,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a20ede198cb02241866ee6760085cbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInvisibleUpgradeAvailable: 0
+  isRegenerateUpgradeAvailable: 0
+  isSpeedBoostUpgradeAvailable: 0
   fireTimerLimit: 0
   bugTimerLimit: 0
   poisonTimerLimit: 0
   playerMovement: {fileID: 1730708850}
   hidingInTreeGroup: {fileID: 1817467905596535748}
+  inputManager: {fileID: 0}
   healthController: {fileID: 123085300}
+  speedBoost: {fileID: 0}
 --- !u!114 &123085300
 MonoBehaviour:
   m_ObjectHideFlags: 0
