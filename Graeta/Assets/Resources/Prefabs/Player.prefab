@@ -875,9 +875,9 @@ MonoBehaviour:
   fireTimerLimit: 0
   bugTimerLimit: 0
   poisonTimerLimit: 0
-  playerMovement: {fileID: 0}
-  hidingInTreeGroup: {fileID: 0}
-  healthController: {fileID: 0}
+  playerMovement: {fileID: 1730708850}
+  hidingInTreeGroup: {fileID: 1817467905596535748}
+  healthController: {fileID: 123085300}
 --- !u!114 &123085300
 MonoBehaviour:
   m_ObjectHideFlags: 0
