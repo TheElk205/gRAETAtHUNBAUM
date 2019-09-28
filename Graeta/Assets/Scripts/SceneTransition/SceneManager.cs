@@ -78,6 +78,14 @@ namespace SceneTransition
             yield return null;
             GameObject.FindWithTag("Player").transform.position = new Vector3(position.x, position.y, -40);
         }
+
+        public void Restart()
+        {
+            currentSceneIndex = 0;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneMappings[SceneNames.TRANSITION], LoadSceneMode.Single);
+
+            Destroy(GameObject.FindWithTag("Player"));
+        }
         
     }
 }

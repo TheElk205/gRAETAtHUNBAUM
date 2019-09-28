@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SceneTransition;
 using UnityEngine;
 
 namespace Player
@@ -108,6 +109,11 @@ namespace Player
                 {
                     healthObjects[index].GetComponent<SpriteRenderer>().sprite = halveSprite;
                 }
+            }
+
+            if (health <= 0)
+            {
+                SceneManager.sceneManager.Restart();
             }
         }
 
