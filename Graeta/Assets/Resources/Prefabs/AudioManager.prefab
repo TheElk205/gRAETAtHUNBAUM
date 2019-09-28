@@ -46,13 +46,13 @@ MonoBehaviour:
   mixerGroup: {fileID: 0}
   sounds:
   - name: StartScreen
-    clip: {fileID: 8300000, guid: f95d0f4f9c58222479f706f93dfee5d9, type: 3}
+    clip: {fileID: 8300000, guid: 672ac151456328c409ca5e4fc9523d62, type: 3}
     volume: 0.33
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
     loop: 1
-    isBackgroundMusic: 0
+    isBackgroundMusic: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Level1Start
@@ -62,7 +62,7 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    isBackgroundMusic: 0
+    isBackgroundMusic: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Level1End
@@ -72,7 +72,7 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    isBackgroundMusic: 0
+    isBackgroundMusic: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: Shop
@@ -82,7 +82,7 @@ MonoBehaviour:
     pitch: 1
     pitchVariance: 0
     loop: 1
-    isBackgroundMusic: 0
+    isBackgroundMusic: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: GameOver
@@ -91,8 +91,8 @@ MonoBehaviour:
     volumeVariance: 0
     pitch: 1
     pitchVariance: 0
-    loop: 0
-    isBackgroundMusic: 0
+    loop: 1
+    isBackgroundMusic: 1
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
   - name: LumberjackHit

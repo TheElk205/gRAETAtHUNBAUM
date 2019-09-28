@@ -39,6 +39,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        this.Play("StartScreen");
+    }
+
     void Update()
     {
         if (previousMusic != null)
