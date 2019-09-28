@@ -11,6 +11,7 @@ namespace Collectibles
             if (other.gameObject.CompareTag("Player"))
             {
                 CollectiblesManager.instance.Collected(this);
+                other.GetComponent<PlayerController>().trashCollected();
             }
         }
     }
