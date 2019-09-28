@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Navigation
 {
@@ -9,7 +8,6 @@ namespace Navigation
         public WaypointManager waypointManager;
 
         public Vector2 startingPoint;
-        public float overallDistance;
         public Vector2 desiredPoint;
         public float speed = 1.0f;
         public float startTime;
@@ -21,6 +19,8 @@ namespace Navigation
         private Waypoint previousWaypoint;
 
         public float threshold = 0.01f;
+        public bool constantSpeed = true;
+        
         public void Start()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
@@ -49,7 +49,6 @@ namespace Navigation
             
             desiredPoint = desired.position;
             startingPoint = transform.position;
-            overallDistance = (startingPoint - desiredPoint).magnitude;
             startTime = Time.time;
             shouldAutoMove = true;
         }
@@ -58,7 +57,16 @@ namespace Navigation
         {
             var position = transform.position;
             float distCovered = (Time.time - startTime) * speed;
-            Vector2 newPosition = Vector2.Lerp(position, desiredPoint, distCovered);
+            
+            Vector2 newPosition = Vector2.zero;
+            if (constantSpeed)
+            {
+                newPosition = Vector2.MoveTowards(position, desiredPoint, distCovered);
+            }
+            else
+            {
+                newPosition = Vector2.Lerp(position, desiredPoint, distCovered);
+            }
             rigidbody2D.MovePosition(newPosition);
         }
 
@@ -84,6 +92,7 @@ namespace Navigation
         public void StartMovingAlongWaypoints()
         {
             Waypoint nearestWaypoint = waypointManager.GetNearestWaypoint(transform.position);
+            Debug.Log("Moving towards first point");
             SetDesiredWaypointAndStartMoving(nearestWaypoint);
         }
     }
