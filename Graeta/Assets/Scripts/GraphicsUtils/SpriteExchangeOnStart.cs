@@ -6,7 +6,8 @@ namespace GraphicsUtils
     public class SpriteExchangeOnStart : MonoBehaviour
     {
         public Sprite[] sprites;
-
+        public bool refreshPolygonCollider;
+        
         public void Start()
         {
             if (sprites == null || sprites.Length == 0)
