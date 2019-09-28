@@ -1940,13 +1940,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1999552347}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &128524606
@@ -2600,13 +2600,13 @@ MonoBehaviour:
   waypointManager: {fileID: 235804034}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &169905804
@@ -5526,13 +5526,13 @@ MonoBehaviour:
   waypointManager: {fileID: 145022528}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &457446663
@@ -6022,13 +6022,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1985971294}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &503898128
@@ -7374,13 +7374,13 @@ MonoBehaviour:
   waypointManager: {fileID: 98000960}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &664883492
@@ -12971,13 +12971,13 @@ MonoBehaviour:
   waypointManager: {fileID: 900200960}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1103248050
@@ -14661,13 +14661,13 @@ MonoBehaviour:
   waypointManager: {fileID: 256374295}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1267961758
@@ -15086,13 +15086,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1297786331}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1297854611
@@ -16174,13 +16174,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1415350853}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1402302139
@@ -18092,13 +18092,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1353133610}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1492670453
@@ -21818,13 +21818,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1472823205}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1837932393
@@ -23414,13 +23414,13 @@ MonoBehaviour:
   waypointManager: {fileID: 2064356347}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1953379469
@@ -23510,13 +23510,13 @@ MonoBehaviour:
   waypointManager: {fileID: 1451106530}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!58 &1954443255
@@ -24639,6 +24639,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160557511974947958, guid: 0836ddf2e6e6001449cc12a2ad571f90,
+        type: 3}
+      propertyPath: speed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160557511974947958, guid: 0836ddf2e6e6001449cc12a2ad571f90,
+        type: 3}
+      propertyPath: decayTime
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2802775210194270224, guid: 0836ddf2e6e6001449cc12a2ad571f90,
         type: 3}
@@ -26599,13 +26609,13 @@ MonoBehaviour:
   waypointManager: {fileID: 5569643778575274021}
   startingPoint: {x: 0, y: 0}
   desiredPoint: {x: 0, y: 0}
-  speed: 2
+  speed: 0.05
   startTime: 0
   shouldAutoMove: 0
   threshold: 0.01
   constantSpeed: 1
   spawnDelay: 0.1
-  decayTime: 1
+  decayTime: 0.5
   flameling: {fileID: 1783861090510564492, guid: 25059c1f0e9e40f4ea9339e589b6e6b3,
     type: 3}
 --- !u!4 &1481396411757849254
