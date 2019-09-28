@@ -23,16 +23,19 @@ public class PlayerController : MonoBehaviour
     public Player.PlayerMovement playerMovement;
     public HidingInTreeGroup hidingInTreeGroup;
     public InputManager inputManager;
-    PineShooter shooter;
+    public PineShooter shooter;
     public Player.HealthController healthController;
     public SpeedBoost speedBoost;
 
+    public GameObject burning, bugged;
+    int wiggeldCount = 10;
+    public int wiggeldOf = 10;
     private CollectiblesManager collectiblesManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        shooter = GetComponent<PineShooter>();
+        shooter = GetComponent<PineShooter>(); 
         collectiblesManager = FindObjectOfType<CollectiblesManager>();
     }
 
@@ -78,6 +81,25 @@ public class PlayerController : MonoBehaviour
         {
             speedBoost.activate();
         }
+
+        if (isBugged)
+        {
+            if (inputManager.Wiggels() == 1)
+            {
+                wiggeldCount += 1;
+            }
+            else if (inputManager.Wiggels() == -1)
+            {
+                wiggeldCount = 0;
+            }
+
+            if (wiggeldCount >= wiggeldOf)
+            {
+                wiggeldCount = 0;
+                isBugged = false;
+                bugged.SetActive(false);
+            }
+        }
     }   
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -85,12 +107,18 @@ public class PlayerController : MonoBehaviour
         if (collision.tag.Equals("Fire"))
         {
             isOnFire = true;
-            FindObjectOfType<AudioManager>().Play("FireHit");
-        } 
+			FindObjectOfType<AudioManager>().Play("FireHit");
+        }
         else if (collision.tag.Equals("Bug"))
         {
             isBugged = true;
+            bugged.SetActive(true);
             Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("Water"))
+        {
+            isOnFire = false;
+            burning.SetActive(false);
         }
         else if (collision.gameObject.tag.Equals("ShopItem"))
         {
