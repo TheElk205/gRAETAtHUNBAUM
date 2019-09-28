@@ -35,7 +35,7 @@ namespace Player
 
         private int maxHealth = 0;
         private float timer = 0.0f;
-        private int health = 0;
+        private int health = 1;
         private bool isRegenEnabled = false;
 
 
