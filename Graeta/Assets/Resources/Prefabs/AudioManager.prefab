@@ -125,5 +125,25 @@ MonoBehaviour:
     isBackgroundMusic: 0
     mixerGroup: {fileID: 0}
     source: {fileID: 0}
+  - name: Level2
+    clip: {fileID: 8300000, guid: 54b10f24cc6476e4586919a2ff33b43b, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 1
+    isBackgroundMusic: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: Win
+    clip: {fileID: 8300000, guid: ad7cf9df226b6bf49b991a0a062dd1aa, type: 3}
+    volume: 0.33
+    volumeVariance: 0
+    pitch: 0.33
+    pitchVariance: 0
+    loop: 1
+    isBackgroundMusic: 1
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
   fadeInStep: 0.1
   fadeOutStep: 0.1
