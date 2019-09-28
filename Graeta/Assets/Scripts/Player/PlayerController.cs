@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Collectibles;
 
 public class PlayerController : MonoBehaviour
 {
@@ -26,10 +27,13 @@ public class PlayerController : MonoBehaviour
     public Player.HealthController healthController;
     public SpeedBoost speedBoost;
 
+    private CollectiblesManager collectiblesManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        shooter = GetComponent<PineShooter>(); 
+        shooter = GetComponent<PineShooter>();
+        collectiblesManager = FindObjectOfType<CollectiblesManager>();
     }
 
     // Update is called once per frame
@@ -92,6 +96,13 @@ public class PlayerController : MonoBehaviour
             var shopItem = collision.gameObject.GetComponent<ShopItem>();
             Debug.Log("ShopItem: " + shopItem.type.ToString());
             Debug.Log("ShopItem price: " + shopItem.price.ToString());
+            Debug.Log("Resources: " + this.collectiblesManager.collectedResources.ToString());
+
+            if (this.collectiblesManager.collectedResources < shopItem.price)
+            {
+                Debug.Log("Lacking resources!");
+                return;
+            }
 
             switch (shopItem.type)
             {
@@ -114,6 +125,7 @@ public class PlayerController : MonoBehaviour
                     else if (maxHealth == Player.HealthController.MaxHealth.FOURTEEN_HEALTH)
                     {
                         Debug.Log("Already max health!");
+                        return;
                     }
                     break;
                 case ShopItem.ItemType.STEALTH:
@@ -121,7 +133,7 @@ public class PlayerController : MonoBehaviour
                     break;
             }
 
-
+            this.collectiblesManager.collectedResources -= shopItem.price;
             Destroy(collision.gameObject);
         }
     }
