@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private CollectiblesManager collectiblesManager;
 
     public static PlayerController instance { private set; get; }
+    public GameObject ScoreCan1, ScoreCan2, ScoreCan3;
 
     public void Awake()
     {
@@ -181,6 +182,7 @@ public class PlayerController : MonoBehaviour
             }
 
             this.collectiblesManager.collectedResources -= shopItem.price;
+            trashSpent();
             Destroy(collision.gameObject);
         }
     }
@@ -222,6 +224,45 @@ public class PlayerController : MonoBehaviour
             return false;
         }
         return true;
+    }
+
+    public void trashCollected()
+    {
+        toogleCans();
+    }
+
+    public void trashSpent()
+    {
+        toogleCans();
+    }
+
+    private void toogleCans()
+    {
+        float currentResources = collectiblesManager.collectedResources;
+        if (currentResources == 1)
+        {
+            ScoreCan1.SetActive(true);
+            ScoreCan2.SetActive(false);
+            ScoreCan3.SetActive(false);
+        }
+        else if (currentResources == 2)
+        {
+            ScoreCan1.SetActive(true);
+            ScoreCan2.SetActive(true);
+            ScoreCan3.SetActive(false);
+        }
+        else if (currentResources == 3)
+        {
+            ScoreCan1.SetActive(true);
+            ScoreCan2.SetActive(true);
+            ScoreCan3.SetActive(true);
+        }
+        else
+        {
+            ScoreCan1.SetActive(false);
+            ScoreCan2.SetActive(false);
+            ScoreCan3.SetActive(false);
+        }
     }
 
     /*private void resolveTimer(float timer, float timerLimit, int dmg)

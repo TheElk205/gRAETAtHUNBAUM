@@ -26,10 +26,6 @@ namespace SceneTransition
             }
         }
 
-        public void Start()
-        {
-            FindObjectOfType<AudioManager>().Play("StartScreen");
-        }
 
         private static List<SceneNames> scenes = new List<SceneNames>
         {
