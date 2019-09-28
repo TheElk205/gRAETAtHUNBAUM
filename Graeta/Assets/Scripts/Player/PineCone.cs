@@ -9,4 +9,9 @@ public class PineCone : MonoBehaviour
         if (!collision.tag.Equals("Player"))
             GetComponent<CapsuleCollider2D>().isTrigger = false;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        FindObjectOfType<AudioManager>().Play("PineconeHit");
+    }
 }
