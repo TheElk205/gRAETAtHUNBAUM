@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Enemies;
 using UnityEngine;
 
 public class flamelings : MonoBehaviour
@@ -9,7 +10,7 @@ public class flamelings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        decay = transform.parent.GetComponentInChildren<fireyflames>().decayTime;  
+        decay = transform.parent.GetComponentInChildren<Fireyflames>().decayTime;  
     }
 
     // Update is called once per frame
