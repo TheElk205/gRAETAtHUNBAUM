@@ -14,6 +14,13 @@ namespace Navigation
         
         public List<WaypointConnection> connections;
 
+        public void Start()
+        {
+            #if !UNITY_EDITOR
+            GetComponent<SpriteRenderer>().enabled = false;
+            #endif
+        }
+        
         public Waypoint GetRandomNextWaypoint()
         {
             if (connections == null || connections.Count == 0)
