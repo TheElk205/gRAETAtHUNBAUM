@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
         if (collision.tag.Equals("Fire"))
         {
             isOnFire = true;
+            FindObjectOfType<AudioManager>().Play("FireHit");
         } 
         else if (collision.tag.Equals("Bug"))
         {
@@ -143,6 +144,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag.Equals("Woodcutter"))
         {
             changeHp(-collision.gameObject.GetComponent<woodcutter>().dmg);
+            FindObjectOfType<AudioManager>().Play("LumberjackHit");
         }
 
     }
