@@ -5,13 +5,13 @@ namespace Portal
 {
     public class Portal : MonoBehaviour
     {
-        public SceneNames loadNext;
+        public Vector2 position;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.tag.Equals("Player"))
             {
-                SceneManager.LoadNextScene();
+                SceneManager.sceneManager.LoadScenePositionPlayer(position);
             }
         }
     }

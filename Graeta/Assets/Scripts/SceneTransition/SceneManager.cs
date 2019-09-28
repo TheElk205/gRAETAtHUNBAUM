@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace SceneTransition
 {
     public class SceneManager : MonoBehaviour
     {
-        private static SceneManager sceneManager;
+        public static SceneManager sceneManager { private set; get; }
 
         public static int currentSceneIndex = 0;
         
@@ -54,15 +56,32 @@ namespace SceneTransition
             {SceneNames.TRANSITION, "Shop"},
         };
 
-        public static void LoadNextScene()
+        public void LoadScenePositionPlayer(Vector2 position)
         {
             currentSceneIndex++;
             string sceneName = sceneMappings[scenes[currentSceneIndex]];
-            Debug.Log("Loading Scene: " + sceneName);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+            StartCoroutine(LoadLevelWaitAndSetPosition(sceneName, position));
 
             string music = sceneBackgroundMusic[scenes[currentSceneIndex]];
             FindObjectOfType<AudioManager>().Play(music);
+        }
+        
+        public static void LoadNextScene()
+        {
+            
+        }
+        
+        private IEnumerator LoadLevelWaitAndSetPosition (String sceneName, Vector2 position)
+        {
+            
+            Debug.Log("Loading Scene: " + sceneName);
+            var asyncLoadLevel = UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Single);
+            while (!asyncLoadLevel.isDone){
+                print("Loading the Scene"); 
+                yield return null;
+            }
+
+            GameObject.FindWithTag("Player").transform.position = new Vector3(position.x, position.y, -40);
         }
         
     }

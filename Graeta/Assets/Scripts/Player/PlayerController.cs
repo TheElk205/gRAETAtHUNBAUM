@@ -33,11 +33,28 @@ public class PlayerController : MonoBehaviour
     public int wiggeldOf = 10;
     private CollectiblesManager collectiblesManager;
 
+    public static PlayerController instance { private set; get; }
+
+    public void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+            
+        if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
         shooter = GetComponent<PineShooter>(); 
         collectiblesManager = FindObjectOfType<CollectiblesManager>();
+        inputManager = GetComponent<InputManager>();
     }
 
     // Update is called once per frame
