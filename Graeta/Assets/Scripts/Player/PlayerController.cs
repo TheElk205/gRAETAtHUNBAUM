@@ -81,9 +81,47 @@ public class PlayerController : MonoBehaviour
         if (collision.tag.Equals("Fire"))
         {
             isOnFire = true;
-        } else if (collision.tag.Equals("Bug"))
+        } 
+        else if (collision.tag.Equals("Bug"))
         {
             isBugged = true;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag.Equals("ShopItem"))
+        {
+            var shopItem = collision.gameObject.GetComponent<ShopItem>();
+            Debug.Log("ShopItem: " + shopItem.type.ToString());
+            Debug.Log("ShopItem price: " + shopItem.price.ToString());
+
+            switch (shopItem.type)
+            {
+                case ShopItem.ItemType.SPEED:
+                    this.isSpeedBoostUpgradeAvailable = true;
+                    break;
+                case ShopItem.ItemType.SHOOT:
+                    this.shooter.canShoot = true;
+                    break;
+                case ShopItem.ItemType.HEALTH:
+                    var maxHealth = this.healthController.getMaxHealth();
+                    if (maxHealth == Player.HealthController.MaxHealth.SIX_HEALTH)
+                    {
+                        this.healthController.setMaxHealth(Player.HealthController.MaxHealth.TEN_HEALTH);
+                    }
+                    else if (maxHealth == Player.HealthController.MaxHealth.TEN_HEALTH)
+                    {
+                        this.healthController.setMaxHealth(Player.HealthController.MaxHealth.FOURTEEN_HEALTH);
+                    }
+                    else if (maxHealth == Player.HealthController.MaxHealth.FOURTEEN_HEALTH)
+                    {
+                        Debug.Log("Already max health!");
+                    }
+                    break;
+                case ShopItem.ItemType.STEALTH:
+                    this.isInvisibleUpgradeAvailable = true;
+                    break;
+            }
+
+
             Destroy(collision.gameObject);
         }
     }
@@ -94,6 +132,7 @@ public class PlayerController : MonoBehaviour
         {
             changeHp(-collision.gameObject.GetComponent<woodcutter>().dmg);
         }
+
     }
 
     private void OnTriggerStay2D(Collider2D other)
